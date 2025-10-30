@@ -20,7 +20,7 @@ public interface UserRepository extends JpaRepository<User, UUID> {
 
     public List<User> findByNameStartingWithAndNameEndingWith(String name1, String name2);
 
-    // Q1 JPQL  biusca o user por ID e faz fetch com profile e posts.
+    // Q1 JPQL  busca o user por ID e faz fetch com profile e posts.
     @Query(
             """
         select distinct u

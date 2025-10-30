@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
 import com.example.demo.domainmodel.User;
-import com.example.demo.domainmodel.repositories.NonPersistentUserRepository;
 import com.example.demo.domainmodel.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

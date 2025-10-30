@@ -2,6 +2,8 @@ package com.example.demo.controllers;
 
 import com.example.demo.domainmodel.User;
 import com.example.demo.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,11 +15,13 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
+@Tag(name = "Usuarios", description = "Operações relativas à usuário")
 public class UserController {
 
     private final UserService userService;
 
     @GetMapping
+    @Operation(method = "GET", description = "Listar todos os usuários")
     public ResponseEntity<List<User>> findAll() {
         return ResponseEntity.ok(this.userService.findAll());
     }
