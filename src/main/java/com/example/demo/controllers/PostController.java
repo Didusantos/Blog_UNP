@@ -1,12 +1,10 @@
 package com.example.demo.controllers;
-
 import com.example.demo.domainmodel.Post;
 import com.example.demo.service.PostService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.apache.tomcat.util.http.parser.HttpParser;
-import org.aspectj.lang.annotation.DeclareError;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +13,11 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("api/posts")
-@RequiredArgsConstructor
 @Tag(name = "Post", description = "Operações de posts")
+@RequestMapping("/api/posts")
+@RequiredArgsConstructor
+@Tag(name = "Posts", description = "Operações de posts")
+
 public class PostController {
 
     private final PostService postService;

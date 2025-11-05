@@ -20,4 +20,5 @@ public interface PostService {
     public void deletePostById(UUID id);
 
     public Post partialUpdatePost(UUID id, Post post);
+
 }
