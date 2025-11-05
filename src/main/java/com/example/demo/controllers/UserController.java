@@ -15,7 +15,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
-@Tag(name = "Usuarios", description = "Operações relativas à usuário")
+@Tag(name = "User", description = "Operações relativas à usuário")
 public class UserController {
 
     private final UserService userService;
@@ -23,6 +23,7 @@ public class UserController {
     @GetMapping
     @Operation(method = "GET", description = "Listar todos os usuários")
     public ResponseEntity<List<User>> findAll() {
+
         return ResponseEntity.ok(this.userService.findAll());
     }
 
@@ -48,7 +49,7 @@ public class UserController {
         return new ResponseEntity<>(this.userService.create(user), HttpStatus.CREATED);
     }
 
-    @PatchMapping
+    @PatchMapping()
     public ResponseEntity<User> patchUser(@RequestBody User user) {
         return new ResponseEntity<>(this.userService.partialUpdate(user), HttpStatus.CREATED);
     }
