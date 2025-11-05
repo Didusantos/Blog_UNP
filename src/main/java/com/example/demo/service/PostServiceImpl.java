@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.domainmodel.Post;
 
+import com.example.demo.domainmodel.repositories.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,41 +13,41 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class PostServiceImpl implements PostService {
 
-    private final PostService repository;
+    private final PostRepository postRepository;
 
     @Override
     public List<Post> findAllPosts() {
-        return this.repository.findAllPosts();
+        return this.postRepository.findAll();
     }
 
     @Override
     public Post findPostById(UUID id) {
-        return this.repository.findPostById(id);
+        return this.postRepository.findById(id).orElse(null);
     }
 
     @Override
     public List<Post> findPostByTitle(String title) {
-        return this.repository.findPostByTitle(title);
+        return this.postRepository.findPostByTitle(title);
     }
 
     @Override
     public Post createPost(Post post) {
-        return this.repository.createPost(post);
+        return this.postRepository.save(post);
     }
 
     @Override
     public Post updatePost(UUID id, Post post) {
-        return this.repository.updatePost(id, post);
+        return this.postRepository.save(post);
     }
 
     @Override
     public void deletePostById(UUID id) {
-        this.repository.deletePostById(id);
+        this.postRepository.deleteById(id);
     }
 
     @Override
     public Post partialUpdatePost(UUID id, Post post) {
-        return this.repository.partialUpdatePost(id, post);
+        return this.postRepository.save(post);
     }
 }
 

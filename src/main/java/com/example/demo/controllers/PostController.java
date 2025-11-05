@@ -16,8 +16,6 @@ import java.util.UUID;
 @Tag(name = "Post", description = "Operações de posts")
 @RequestMapping("/api/posts")
 @RequiredArgsConstructor
-@Tag(name = "Posts", description = "Operações de posts")
-
 public class PostController {
 
     private final PostService postService;
