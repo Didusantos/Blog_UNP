@@ -14,7 +14,7 @@ public class OpenApiConfig {
                 .info( new Info()
                         .title("Api de exemplo: Blog")
                         .version("1.0")
-                        .description("BOA")
+                        .description("Uma API para gerenciamento de um blog")
                 );
     }
 }
