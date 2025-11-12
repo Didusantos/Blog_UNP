@@ -1,7 +1,6 @@
 package com.example.demo.infraestructure.config;
 
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
@@ -26,7 +25,7 @@ public class JwtHelper {
     }
 
     public String extracUsername(String token){
-        return Jwts.builder()
+        return Jwts.parserBuilder()
                 .setSigningKey(this.getSigningKey())
                 .build()
                 .parseClaimsJws(token)
