@@ -1,11 +1,12 @@
 package com.example.demo.service;
 
 import com.example.demo.domainmodel.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 import java.util.UUID;
 
-public interface UserService {
+public interface UserService extends UserDetailsService {
 
     List<User> findAll();
 
